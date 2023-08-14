@@ -3,16 +3,148 @@
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('background1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            transition: background-image 4s ease-in-out;
+            position: relative;
+        }
+        
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            color: #333333;
+            font-size: 24px;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            color: #333333;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+            color: #666666;
+        }
+        
+        button {
+            background-color: #00bfff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0099cc;
+        }
+
+        .background-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .background-button {
+            width: 12px;
+            height: 12px;
+            background-color: #666666;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .background-button.active {
+            background-color: #ffffff;
+        }
+
+        .background-button.darken {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
 </head>
 <body>
+    <img src="logo.png" alt="Logo" class="logo">
     <div class="login-container">
-        <h1>Login</h1>
+        <h1>Bem vindo a Underground!</h1>
         <form id="login-form">
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
     </div>
-    <script src="script.js"></script>
+    <div class="background-buttons">
+        <div class="background-button" onclick="changeBackground(0)"></div>
+        <div class="background-button" onclick="changeBackground(1)"></div>
+        <div class="background-button" onclick="changeBackground(2)"></div>
+        <div class="background-button" onclick="changeBackground(3)"></div>
+    </div>
+    <script>
+        const backgrounds = ['background1.jpg', 'background2.jpg', 'background3.jpg', 'background4.jpg'];
+        let currentIndex = 0;
+
+        function preloadImages() {
+            for (let i = 0; i < backgrounds.length; i++) {
+                new Image().src = backgrounds[i];
+            }
+        }
+
+        function changeBackground(index) {
+            currentIndex = index;
+            document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${backgrounds[currentIndex]}')`;
+            const buttons = document.querySelectorAll('.background-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            buttons[index].classList.add('active');
+        }
+
+        preloadImages();
+        let intervalId = setInterval(function() {
+            currentIndex = (currentIndex + 1) % backgrounds.length;
+            changeBackground(currentIndex);
+        }, 8000);
+
+        // Limpa o intervalo quando a janela é fechada
+        window.addEventListener('beforeunload', function() {
+            clearInterval(intervalId);
+        });
+    </script>
 </body>
 </html>
