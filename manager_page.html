@@ -2,9 +2,74 @@
 <html>
 <head>
     <title>Manager Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222222; /* Cor de fundo escura */
+            color: #ffffff; /* Cor do texto */
+        }
+        
+        .header {
+            background-color: #333333;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0; /* Fixa o cabeçalho na parte superior */
+            width: 100%;
+            z-index: 999;
+        }
+        
+        .logo {
+            width: 80px; /* Reduzindo o tamanho do logotipo */
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 10px; /* Afastando um pouco das bordas */
+        }
+
+        .content {
+            margin-top: 70px; /* para dar espaço ao cabeçalho fixo */
+            padding: 20px;
+        }
+
+        .header-title {
+            font-size: 20px;
+            text-align: center; /* Centralizando o texto */
+            flex-grow: 1; /* Expande o espaço disponível */
+        }
+
+        .header-title span {
+            display: block;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Manager Dashboard</h1>
-    <!-- Form to input data -->
+    <div class="header">
+        <div class="menu-icon">
+            &#9776; <!-- Ícone de menu (três linhas) -->
+        </div>
+        <div class="header-title">
+            Bem-vindo à Página de Gerenciamento
+            <span>Gerencie tudo o que você precisa aqui</span>
+        </div>
+        <div class="logo">
+            <img src="logo2.png" alt="Logo">
+        </div>
+    </div>
+    <div class="content">
+        <!-- Conteúdo da página -->
+        <h1>Bem-vindo à Página de Gerenciamento</h1>
+        <p>Seu conteúdo aqui...</p>
+    </div>
 </body>
 </html>
