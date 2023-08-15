@@ -97,6 +97,18 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+        .password-container {
+            position: relative;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -105,8 +117,11 @@
         <h1>Bem vindo a Underground!</h1>
         <form id="login-form">
             <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="show-password" id="showPassword">Mostrar</span>
+            </div>
+            <button type="submit" id="login-button">Login</button>
         </form>
     </div>
     <div class="background-buttons">
@@ -135,6 +150,11 @@
             buttons[index].classList.add('active');
         }
 
+        function redirectToManagerPage() {
+            // Redireciona para a página de gerenciamento
+            window.location.href = 'manager_page.html';
+        }
+
         preloadImages();
         let intervalId = setInterval(function() {
             currentIndex = (currentIndex + 1) % backgrounds.length;
@@ -144,6 +164,38 @@
         // Limpa o intervalo quando a janela é fechada
         window.addEventListener('beforeunload', function() {
             clearInterval(intervalId);
+        });
+
+        document.getElementById('login-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verifica as credenciais do usuário
+            if (authenticateUser(username, password)) {
+                redirectToManagerPage();
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+
+        // Função para autenticar o usuário (substitua com a lógica real de autenticação)
+        function authenticateUser(username, password) {
+            // Exemplo de autenticação simples
+            return username === 'admin' && password === '88042864';
+        }
+        const showPasswordButton = document.getElementById('showPassword');
+        const passwordInput = document.getElementById('password');
+
+        showPasswordButton.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                showPasswordButton.textContent = 'Ocultar';
+            } else {
+                passwordInput.type = 'password';
+                showPasswordButton.textContent = 'Mostrar';
+            }
         });
     </script>
 </body>
