@@ -11,6 +11,8 @@
             background: url('background_image.png') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff; /* Cor do texto */
+            position: relative;
+            min-height: 100vh; /* Altura mínima da viewport */
         }
 
         .logo {
@@ -53,10 +55,10 @@
             color: #ffffff;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
-            bottom: 0;
             width: 100%;
-            z-index: 999;
+            position: absolute;
+            bottom: 0;
+            left: 0;
         }
 
         .footer a {
@@ -73,7 +75,7 @@
 
         .gallery-image {
             display: none;
-            width: 75%;
+            width: 65%;
             height: auto;
             margin: 0 auto;
         }
@@ -92,6 +94,32 @@
             20%, 80% {
                 opacity: 1;
             }
+        }
+
+        .square-button {
+            position: absolute;
+            top: 592px;
+            left: 83%;
+            transform: translateX(-50%);
+            width: 10%;
+            height: 5%;
+            background-color: #03007d;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .square-button:hover {
+            background-color: #0500ce;
+        }
+
+        .subtitle-image {
+            position: absolute;
+            top: 430px;
+            left: 85%;
+            transform: translateX(-50%);
+            width: auto;
+            height: auto;
         }
     </style>
 </head>
@@ -122,6 +150,15 @@
         <img src="photo3.jpg" alt="Photo 3" class="gallery-image fade">
         <img src="photo4.jpg" alt="Photo 3" class="gallery-image fade">
     </div>
+    
+    <img src="subtittle.png" alt="Subtitle" class="subtitle-image">
+
+    
+    <button class="square-button">
+        <a href="rotas.html">
+            <img src="rota.png" alt="Rota">
+        </a>
+    </button>
 
     <div class="footer">
         Powered by <a href="#">Baiano</a> and <a href="#">Rasaec</a>
