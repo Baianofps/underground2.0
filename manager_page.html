@@ -63,6 +63,36 @@
             color: #ffffff;
             text-decoration: none;
         }
+
+        .gallery-container {
+            position: absolute;
+            top: 165px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .gallery-image {
+            display: none;
+            width: 75%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 8s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fade {
+            0%, 100% {
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -86,8 +116,32 @@
     
     <img src="right_image.png" alt="Right Image" class="right-image">
 
+    <div class="gallery-container">
+        <img src="photo1.jpg" alt="Photo 1" class="gallery-image fade" style="display: block;">
+        <img src="photo2.jpg" alt="Photo 2" class="gallery-image fade">
+        <img src="photo3.jpg" alt="Photo 3" class="gallery-image fade">
+        <img src="photo4.jpg" alt="Photo 3" class="gallery-image fade">
+    </div>
+
     <div class="footer">
         Powered by <a href="#">Baiano</a> and <a href="#">Rasaec</a>
     </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("gallery-image");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 8000); // Change image every 8 seconds
+        }
+    </script>
 </body>
 </html>
