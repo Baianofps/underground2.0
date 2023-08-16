@@ -98,9 +98,9 @@
             text-align: center;
             padding: 10px 0;
             width: 100%;
-            position: absolute;
-            bottom: -1500px;
-            left: 0;
+            position: relative;
+            bottom: -100px;
+            left: auto;
         }
 
         .footer a {
@@ -142,6 +142,18 @@
             left: 4%;
         }
 
+        .lives-image {
+            position: absolute;
+            top: 1250px;
+            left: auto;
+        }
+
+        .oval-image {
+            position: absolute;
+            top: 2000px;
+            left: auto;
+        }
+
         .barra-image {
             position: absolute;
             top: 805px;
@@ -153,7 +165,19 @@
             top: 950px;
             left: auto;
         }
-        
+
+        .fundador-image {
+            position: absolute;
+            top: 1350px;
+            left: 13%;
+        }
+
+        .cofundador-image {
+            position: absolute;
+            top: 2250px;
+            left: 87%;
+        }
+
         .fade {
             animation-name: fade;
             animation-duration: 8s;
@@ -227,11 +251,19 @@
     
     <img src="subtittle.png" alt="Subtitle" class="subtitle-image">
 
+    <img src="fundador.png" alt="Fundador" class="fundador-image">
+
+    <img src="cofundador.png" alt="Fundador" class="cofundador-image">
+
     <img src="bemvindo.png" alt="bemvindo" class="bemvindo-image">
+    
+    <img src="lives.png" alt="Lives" class="lives-image">
 
     <img src="ug.png" alt="ug" class="ug-image">
 
     <img src="barra.png" alt="barra" class="barra-image">
+
+    <img src="oval.png" alt="oval" class="oval-image">
 
     <img src="INFO.png" alt="INFO" class="info-image">
 
@@ -261,13 +293,21 @@
 
     <img src="undergrounders.png" alt="Undergrounders" class="undergrounders-image">
 
-    <div style="position: absolute; top: 1250px; left: 50%; transform: translateX(-50%);">
+    <div style="position: absolute; top: 1350px; left: 50%; transform: translateX(-50%);">
         <iframe
             src="https://player.twitch.tv/?channel=audaz&parent=underground20.netlify.app/manager_page&autoplay=false&muted=true"
             height="720"
             width="1280"
             allowfullscreen>
         </iframe>
+
+        <div style="position: absolute; top: 900px; left: 50%; transform: translateX(-50%);">
+            <iframe
+                src="https://player.twitch.tv/?channel=anciaes&parent=underground20.netlify.app/manager_page&autoplay=false&muted=true"
+                height="720"
+                width="1280"
+                allowfullscreen>
+            </iframe>
     
     <div class="footer">
         Powered by <a href="#">Baiano</a> and <a href="#">Rasaec</a>
