@@ -5,150 +5,329 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #222222; /* Cor de fundo escura */
+            background: url('background_image.png') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff; /* Cor do texto */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        
-        .sidebar {
-            background-color: #333333; /* Cor de fundo da sidebar */
-            color: #ffffff; /* Cor do texto na sidebar */
-            width: 280px;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: -280px; /* Esconde a sidebar inicialmente */
-            z-index: 999;
-            padding-top: 20px;
-            transition: left 0.3s;
-        }
-
-        .sidebar.active {
-            left: 0; /* Exibe a sidebar quando ativa */
+            position: relative;
+            min-height: 100vh; /* Altura mínima da viewport */
         }
 
         .logo {
-            width: 150px;
-            margin: 0 center;
+            position: absolute;
+            top: 3%;
+            left: 3%;
+            width: 200px;
+            height: auto;
+        }
+
+        .top-image {
+            position: absolute;
+            top: 5%;
+        }
+
+        .image1 {
+            left: 34%;
+        }
+
+        .image2 {
+            left: 44%;
+        }
+
+        .image3 {
+            left: 54%;
+        }
+
+        .image4 {
+            left: 64%;
+        }
+
+        .right-image {
+            position: absolute;
+            top: 4.5%;
+            right: 3%;
+        }
+        .sidebar-button {
+            position: absolute;
+            top: 4.5%;
+            right: 3%;
+            width: 5%;
+            height: auto;
+        }
+
+        .sidebar {
+            width: 0;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #1d1d1d;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 9999;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
             display: block;
+            transition: 0.3s;
         }
 
-        .sidebar-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 20px;
+        .sidebar a:hover {
+            color: #f1f1f1;
         }
 
-        .sidebar-link {
+        .sidebar .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+
+        .footer {
+            background-color: #0004be;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: relative;
+            bottom: -100px;
+            left: auto;
+        }
+
+        .footer a {
             color: #ffffff;
             text-decoration: none;
-            margin: 15px 0;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 8px;
         }
 
-        .sidebar-link img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        .sidebar-link:hover {
-            background-color: #2a2a2a; /* Cor de fundo ao passar o mouse */
-            color: #00bfff; /* Cor do texto ao passar o mouse */
-        }
-
-        .content {
-            margin-left: 0px; /* Espaço para a barra lateral */
-            margin-bottom: 600px;
-            padding: 20px;
+        .gallery-container {
+            position: absolute;
+            top: 165px;
+            width: 100%;
             text-align: center;
-            flex: 1; /* Permite que o conteúdo cresça para ocupar o espaço restante */
         }
 
-        .header-title {
-            font-size: 24px;
-            margin-bottom: 5px;
+        .gallery-image {
+            display: none;
+            width: 65%;
+            height: auto;
+            margin: 0 auto;
+        }
+        
+        .undergrounders-image {
+            position: absolute;
+            top: 357px;
+            left: 4%;
         }
 
-        .header-subtitle {
-            font-size: 16px;
+        .bemvindo-image {
+            position: absolute;
+            top: 536px;
+            left: 10%;
         }
 
-        .toggle-sidebar-button {
-            background-color: #333333;
-            color: #ffffff;
+        
+
+        .ug-image {
+            position: absolute;
+            top: 242px;
+            left: 4%;
+        }
+
+        .lives-image {
+            position: absolute;
+            top: 1250px;
+            left: auto;
+        }
+
+        .oval-image {
+            position: absolute;
+            top: 2000px;
+            left: auto;
+        }
+
+        .barra-image {
+            position: absolute;
+            top: 805px;
+            width: 100%;
+        }
+
+        .info-image {
+            position: absolute;
+            top: 950px;
+            left: auto;
+        }
+
+        .fundador-image {
+            position: absolute;
+            top: 1350px;
+            left: 13%;
+        }
+
+        .cofundador-image {
+            position: absolute;
+            top: 2250px;
+            left: 87%;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 8s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fade {
+            0%, 100% {
+                opacity: 0;
+            }
+            20%, 80% {
+                opacity: 1;
+            }
+        }
+
+        .square-button {
+            position: absolute;
+            top: 592px;
+            left: 83%;
+            transform: translateX(-50%);
+            width: 10%;
+            height: 5%;
+            background-color: #03007d;
             border: none;
-            padding: 10px;
-            border-radius: 0 8px 8px 0;
-            position: fixed;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
             cursor: pointer;
-            z-index: 999;
             transition: background-color 0.3s;
         }
 
-        .toggle-sidebar-button:hover {
-            background-color: #2a2a2a;
+        .square-button:hover {
+            background-color: #0500ce;
         }
 
-        .toggle-sidebar-button.active {
-            left: 280px; /* Posição quando a sidebar estiver ativada */
+        .subtitle-image {
+            position: absolute;
+            top: 430px;
+            left: 85%;
+            transform: translateX(-50%);
+            width: auto;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <button class="toggle-sidebar-button" id="toggle-sidebar-button">&#9776;</button>
-    <div class="sidebar">
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
-        </div>
-        <div class="sidebar-links">
-            <a class="sidebar-link" href="#" title="Inicio">
-                <img src="home-t.svg" alt="Opção 1">
-                Inicio
-            </a>
-            <a class="sidebar-link" href="#" title="Enviar Rota">
-                <img src="upload-t.svg" alt="Opção 2">
-                Enviar Rota
-            </a>
-            <a class="sidebar-link" href="#" title="Perfil">
-                <img src="profile.png" alt="Opção 3">
-                Perfil
-            </a>
-        </div>
-    </div>
-    <div class="content">
-        <div class="header-title">
-            Bem-vindo à Página de Gerenciamento
-        </div>
-        <div class="header-subtitle">
-            Gerencie tudo o que você precisa aqui
-        </div>
-        <!-- Conteúdo da página -->
-        <h1>Conteúdo da Página de Gerenciamento</h1>
-        <p>Seu conteúdo aqui...</p>
-    </div>
-    <script>
-        const toggleSidebarButton = document.getElementById('toggle-sidebar-button');
-        const sidebar = document.querySelector('.sidebar');
+    <img src="logo.png" alt="Logo" class="logo">
+    
+    <a href="manager_page.html">
+        <img src="image1.png" alt="Image 1" class="top-image image1">
+    </a>
+    
+    <a href="pedidos.html">
+        <img src="image2.png" alt="Image 2" class="top-image image2">
+    </a>
+    
+    <a href="rotas.html">
+        <img src="image3.png" alt="Image 3" class="top-image image3">
+    </a>
+    
+    <a href="membros.html">
+        <img src="image4.png" alt="Image 4" class="top-image image4">
+    </a>
+    
+  
 
-        toggleSidebarButton.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            toggleSidebarButton.classList.toggle('active');
-        });
+    <div class="gallery-container">
+        <img src="photo1.jpg" alt="Photo 1" class="gallery-image fade" style="display: block;">
+        <img src="photo2.jpg" alt="Photo 2" class="gallery-image fade">
+        <img src="photo3.jpg" alt="Photo 3" class="gallery-image fade">
+        <img src="photo4.jpg" alt="Photo 3" class="gallery-image fade">
+    </div>
+    
+    <img src="subtittle.png" alt="Subtitle" class="subtitle-image">
+
+    <img src="fundador.png" alt="Fundador" class="fundador-image">
+
+    <img src="cofundador.png" alt="Fundador" class="cofundador-image">
+
+    <img src="bemvindo.png" alt="bemvindo" class="bemvindo-image">
+    
+    <img src="lives.png" alt="Lives" class="lives-image">
+
+    <img src="ug.png" alt="ug" class="ug-image">
+
+    <img src="barra.png" alt="barra" class="barra-image">
+
+    <img src="oval.png" alt="oval" class="oval-image">
+
+    <img src="INFO.png" alt="INFO" class="info-image">
+
+    <button class="square-button">
+        <a href="rotas.html">
+            <img src="rota.png" alt="Rota">
+        </a>
+    </button>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="rotas.html">Rota</a>
+        <a href="#">Profile</a>
+    </div>
+
+    <img src="right_image.png" alt="Right Image" class="sidebar-button" onclick="openSidebar()"style="width: auto; max-width: 30px; cursor: pointer;">
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "12%";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+
+    <img src="undergrounders.png" alt="Undergrounders" class="undergrounders-image">
+
+    <div style="position: absolute; top: 1350px; left: 50%; transform: translateX(-50%);">
+        <iframe
+            src="https://player.twitch.tv/?channel=audaz&parent=underground20.netlify.app/manager_page&autoplay=false&muted=true"
+            height="720"
+            width="1280"
+            allowfullscreen>
+        </iframe>
+
+        <div style="position: absolute; top: 900px; left: 50%; transform: translateX(-50%);">
+            <iframe
+                src="https://player.twitch.tv/?channel=anciaes&parent=underground20.netlify.app/manager_page&autoplay=false&muted=true"
+                height="720"
+                width="1280"
+                allowfullscreen>
+            </iframe>
+    
+    <div class="footer">
+        Powered by <a href="#">Baiano</a> and <a href="#">Rasaec</a>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("gallery-image");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 8000); // Change image every 8 seconds
+        }
     </script>
 </body>
 </html>

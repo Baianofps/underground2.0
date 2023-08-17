@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedidos</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background_image.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff; /* Cor do texto */
+        }
+
+        .logo {
+            position: absolute;
+            top: 3%;
+            left: 3%;
+            width: 200px;
+            height: auto;
+        }
+
+        .top-image {
+            position: absolute;
+            top: 5%;
+        }
+
+        .image1 {
+            left: 34%;
+        }
+
+        .image2 {
+            left: 44%;
+        }
+
+        .image3 {
+            left: 54%;
+        }
+
+        .image4 {
+            left: 64%;
+        }
+
+        .right-image {
+            position: absolute;
+            top: 4.5%;
+            right: 3%;
+        }
+
+        .sidebar-button {
+            position: absolute;
+            top: 4.5%;
+            right: 3%;
+            width: 5%;
+            height: auto;
+        }
+
+        .sidebar {
+            width: 0;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #1d1d1d;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 9999;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .footer {
+            background-color: #0004be;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    
+    <a href="manager_page.html">
+        <img src="image1.png" alt="Image 1" class="top-image image1">
+    </a>
+    
+    <a href="pedidos.html">
+        <img src="image2.png" alt="Image 2" class="top-image image2">
+    </a>
+    
+    <a href="rotas.html">
+        <img src="image3.png" alt="Image 3" class="top-image image3">
+    </a>
+    
+    <a href="membros.html">
+        <img src="image4.png" alt="Image 4" class="top-image image4">
+    </a>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        <a href="rotas.html">Rota</a>
+        <a href="#">Profile</a>
+    </div>
+
+    <img src="right_image.png" alt="Right Image" class="sidebar-button" onclick="openSidebar()"style="width: auto; max-width: 30px; cursor: pointer;">
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "12%";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+
+    <div class="footer">
+        Powered by <a href="#">Baiano</a> and <a href="#">Rasaec</a>
+    </div>
+</body>
+</html>
