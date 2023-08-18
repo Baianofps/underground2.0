@@ -1,11 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login Page</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'images/background1.jpg' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
     <style>
         body {
+            
+
             font-family: Arial, sans-serif;
             margin: 0;
             display: flex;
@@ -113,13 +117,18 @@
     </style>
 </head>
 <body>
-    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
     <div class="login-container">
-        <h1>Bem vindo a Underground!</h1>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Username" required>
+        <h1><b>Bem vindo a Underground!</b></h1>
+        <form id="login-form", method="post" action="/dologin/">
+            {% if msg %}
+            <div class="alert {{class}}">
+                {{msg}}
+            </div>
+    {% endif %}
+    {% csrf_token %}
+            <input class="form-control mt-8" type="text" name="user" id="user" placeholder="Nome do usuário:" required>
             <div class="password-container">
-                <input type="password" id="password" placeholder="Password" required>
+                <input class="form-control mt-8" type="text" name="password" id="password" placeholder="Senha:" required>
                 <span class="show-password" id="showPassword">Mostrar</span>
             </div>
             <button type="submit" id="login-button">Login</button>
@@ -131,6 +140,7 @@
         <div class="background-button" onclick="changeBackground(2)"></div>
         <div class="background-button" onclick="changeBackground(3)"></div>
     </div>
+    
     <script>
         const backgrounds = ["{% static 'images/background1.jpg' %}", "{% static 'images/background2.jpg' %}","{% static 'images/background3.jpg' %}", "{% static 'images/background4.jpg' %}"];
         let currentIndex = 0;
@@ -151,11 +161,6 @@
             buttons[index].classList.add('active');
         }
 
-        function redirectToManagerPage() {
-            // Redireciona para a página de gerenciamento
-            window.location.href = 'manager_page.html';
-        }
-
         preloadImages();
         let intervalId = setInterval(function() {
             currentIndex = (currentIndex + 1) % backgrounds.length;
@@ -165,22 +170,9 @@
         // Limpa o intervalo quando a janela é fechada
         window.addEventListener('beforeunload', function() {
             clearInterval(intervalId);
+        
+        
         });
-
-        document.getElementById('login-button').addEventListener('click', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Verifica as credenciais do usuário
-            if (authenticateUser(username, password)) {
-                redirectToManagerPage();
-            } else {
-                alert('Invalid username or password');
-            }
-        });
-
         // Função para autenticar o usuário (substitua com a lógica real de autenticação)
         function authenticateUser(username, password) {
             // Exemplo de autenticação simples
@@ -197,7 +189,7 @@
                 passwordInput.type = 'password';
                 showPasswordButton.textContent = 'Mostrar';
             }
-        });
+        });  
     </script>
 </body>
 </html>
