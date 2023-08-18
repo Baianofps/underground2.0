@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'images/background1.jpg' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +12,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: url('background1.jpg') no-repeat center center fixed;
+            background: url("{% static 'images/background1.jpg' %}") no-repeat center center fixed;
             background-size: cover;
             transition: background-image 4s ease-in-out;
             position: relative;
@@ -112,7 +113,7 @@
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="Logo" class="logo">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
     <div class="login-container">
         <h1>Bem vindo a Underground!</h1>
         <form id="login-form">
@@ -131,7 +132,7 @@
         <div class="background-button" onclick="changeBackground(3)"></div>
     </div>
     <script>
-        const backgrounds = ['background1.jpg', 'background2.jpg', 'background3.jpg', 'background4.jpg'];
+        const backgrounds = ["{% static 'images/background1.jpg' %}", "{% static 'images/background2.jpg' %}","{% static 'images/background3.jpg' %}", "{% static 'images/background4.jpg' %}"];
         let currentIndex = 0;
 
         function preloadImages() {
