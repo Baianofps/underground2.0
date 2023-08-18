@@ -117,6 +117,7 @@
     </style>
 </head>
 <body>
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
     <div class="login-container">
         <h1><b>Bem vindo a Underground!</b></h1>
         <form id="login-form", method="post" action="/dologin/">
@@ -173,11 +174,6 @@
         
         
         });
-        // Função para autenticar o usuário (substitua com a lógica real de autenticação)
-        function authenticateUser(username, password) {
-            // Exemplo de autenticação simples
-            return username === 'admin' && password === '88042864';
-        }
         const showPasswordButton = document.getElementById('showPassword');
         const passwordInput = document.getElementById('password');
 

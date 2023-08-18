@@ -1,14 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Manager Page</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('background_image.png') no-repeat center center fixed;
+            background: url("{% static 'images/background1.jpg' %}") no-repeat center center fixed;
             background-size: cover;
             color: #ffffff; /* Cor do texto */
             position: relative;
@@ -222,54 +224,54 @@
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="Logo" class="logo">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
     
     <a href="manager_page.html">
-        <img src="image1.png" alt="Image 1" class="top-image image1">
+        <img src="{% static 'images/image1.png' %}" alt="Image 1" class="top-image image1">
     </a>
     
     <a href="pedidos.html">
-        <img src="image2.png" alt="Image 2" class="top-image image2">
+        <img src="{% static 'images/image2.png' %}" alt="Image 2" class="top-image image2">
     </a>
     
     <a href="rotas.html">
-        <img src="image3.png" alt="Image 3" class="top-image image3">
+        <img src="{% static 'images/image3.png' %}" alt="Image 3" class="top-image image3">
     </a>
     
     <a href="membros.html">
-        <img src="image4.png" alt="Image 4" class="top-image image4">
+        <img src="{% static 'images/image4.png' %}" alt="Image 4" class="top-image image4">
     </a>
     
   
 
     <div class="gallery-container">
-        <img src="photo1.jpg" alt="Photo 1" class="gallery-image fade" style="display: block;">
-        <img src="photo2.jpg" alt="Photo 2" class="gallery-image fade">
-        <img src="photo3.jpg" alt="Photo 3" class="gallery-image fade">
-        <img src="photo4.jpg" alt="Photo 3" class="gallery-image fade">
+        <img src="{% static 'images/photo1.jpg' %}" alt="Photo 1" class="gallery-image fade" style="display: block;">
+        <img src="{% static 'images/photo2.jpg' %}" alt="Photo 2" class="gallery-image fade">
+        <img src="{% static 'images/photo3.jpg' %}" alt="Photo 3" class="gallery-image fade">
+        <img src="{% static 'images/photo4.jpg' %}" alt="Photo 4" class="gallery-image fade">
     </div>
     
-    <img src="subtittle.png" alt="Subtitle" class="subtitle-image">
+    <img src="{% static 'images/subtittle.png' %}" alt="Subtitle" class="subtitle-image">
 
-    <img src="fundador.png" alt="Fundador" class="fundador-image">
+    <img src="{% static 'images/fundador.png' %}" alt="Fundador" class="fundador-image">
 
-    <img src="cofundador.png" alt="Fundador" class="cofundador-image">
+    <img src="{% static 'images/cofundador.png' %}" alt="Fundador" class="cofundador-image">
 
-    <img src="bemvindo.png" alt="bemvindo" class="bemvindo-image">
+    <img src="{% static 'images/bemvindo.png' %}" alt="bemvindo" class="bemvindo-image">
     
-    <img src="lives.png" alt="Lives" class="lives-image">
+    <img src="{% static 'images/lives.png' %}" alt="Lives" class="lives-image">
 
-    <img src="ug.png" alt="ug" class="ug-image">
+    <img src="{% static 'images/ug.png' %}" alt="ug" class="ug-image">
 
-    <img src="barra.png" alt="barra" class="barra-image">
+    <img src="{% static 'images/barra.png' %}" alt="barra" class="barra-image">
 
-    <img src="oval.png" alt="oval" class="oval-image">
+    <img src="{% static 'images/oval.png' %}" alt="oval" class="oval-image">
 
-    <img src="INFO.png" alt="INFO" class="info-image">
+    <img src="{% static 'images/INFO.png' %}" alt="INFO" class="info-image">
 
     <button class="square-button">
         <a href="rotas.html">
-            <img src="rota.png" alt="Rota">
+            <img src="{% static 'images/rota.png' %}" alt="Rota">
         </a>
     </button>
 
@@ -279,7 +281,7 @@
         <a href="#">Profile</a>
     </div>
 
-    <img src="right_image.png" alt="Right Image" class="sidebar-button" onclick="openSidebar()"style="width: auto; max-width: 30px; cursor: pointer;">
+    <img src="{% static 'images/right_image.png' %}" alt="Right Image" class="sidebar-button" onclick="openSidebar()"style="width: auto; max-width: 30px; cursor: pointer;">
 
     <script>
         function openSidebar() {
@@ -291,7 +293,7 @@
         }
     </script>
 
-    <img src="undergrounders.png" alt="Undergrounders" class="undergrounders-image">
+    <img src="{% static 'images/undergrounders.png' %}" alt="Undergrounders" class="undergrounders-image">
 
     <div style="position: absolute; top: 1350px; left: 50%; transform: translateX(-50%);">
         <iframe

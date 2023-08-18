@@ -52,8 +52,5 @@ def dologin(request):
         data['class'] = 'alert-danger'
         return render(request, 'index.html', data)
 
-#TODO arrumar index e o redirecionamento para a manager page
-#TODO voltar a usar bootstrap? Ele n está pegando os dados preenchidos nas caixas de texto
-
 def manager_page(request):
     return render(request, 'manager_page.html')
